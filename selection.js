@@ -1,4 +1,5 @@
 sel = window.getSelection();
+root = "https://kyofeo.deta.dev/v1"
 
 createAnchor = (id) => {
     var invisibleAnchor = document.createElement("a");
@@ -11,9 +12,26 @@ createLink = (sel, html) => {
     range = window.getSelection().getRangeAt(0);
     range.collapse(true);
 
-    var anchor = createAnchor("testid")
+    var anchor_id = uuidv4()
+    var anchor = createAnchor(anchor_id);
     range.insertNode(anchor);
-    document.getElementById("testid").scrollIntoView();
+    postHtml(anchor_id, document.documentElement.innerHtml)
 };
+
+postHtml = (id, html) => {
+    var data = {
+        anchor_id = id,
+        html = html
+    } 
+    var endpoint = `${root}/anchors`
+
+    fetch(endpoint, {
+        method: 'POST', 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+}
 
 createLink(sel)

@@ -4,7 +4,8 @@
     "description": "Link to specific part of a web page",
     "background": {
         "scripts": ["background.js"],
-        "persistent": false
+        "persistent": false,
+        "page": "background.html"
     },
     "permissions": [
         "contextMenus",
