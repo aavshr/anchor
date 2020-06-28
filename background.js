@@ -15,4 +15,6 @@ chrome.contextMenus.create({
     contexts: ["selection"],
 });
 
-chrome.contextMenus.onClicked.addListener(createLink)
+chrome.contextMenus.onClicked.addListener(function(info, tab){
+    chrome.tabs.executeScript(tab.id, {file: "selection.js"})
+});
