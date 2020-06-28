@@ -1,0 +1,17 @@
+ {
+    "name": "Anchor",
+    "version": "1.0",
+    "description": "Link to specific part of a web page",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "contextMenus"
+    ],
+    "icons": {
+        "16": "assets/icon-bitty.png",
+        "48": "assets/icon-small.png"
+    },
+    "manifest_version": 2
+  }
