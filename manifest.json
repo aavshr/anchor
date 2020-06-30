@@ -4,12 +4,14 @@
     "description": "Link to specific part of a web page",
     "background": {
         "scripts": ["background.js"],
-        "persistent": false,
-        "page": "background.html"
+        "persistent": false
     },
     "permissions": [
         "contextMenus",
-        "activeTab"
+        "activeTab",
+        "tabs",
+        "http://*/",
+        "https://*/"
     ],
     "icons": {
         "16": "assets/icon-bitty.png",

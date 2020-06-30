@@ -1,0 +1,27 @@
+root = "https://kyofeo.deta.dev/v1"
+
+scrollToAnchor = () => {
+    u = new URL(location.href)
+    urlParams = new URLSearchParams(u.search); 
+    anchor_id = urlParams.get('anchorrrr_id');
+    if (!anchor_id){
+        return; 
+    }
+
+    let endpoint = `${root}/anchors/${anchor_id}` 
+
+    fetch(endpoint).then((response) => {
+           console.log("response status:", response.status)
+           if (response.status !==200){
+               return;
+           }
+           response.json().then((data) => {
+               if (data){
+                   document.getElementsByTagName("html")[0].innerHTML = data;
+                   document.getElementById(anchor_id).scrollIntoView();
+               };
+           });
+     }); 
+}
+
+scrollToAnchor();
