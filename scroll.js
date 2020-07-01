@@ -15,10 +15,13 @@ scrollToAnchor = () => {
            if (response.status !==200){
                return;
            }
-           response.json().then((data) => {
+           response.text().then((data) => {
                if (data){
                    document.getElementsByTagName("html")[0].innerHTML = data;
-                   document.getElementById(anchor_id).scrollIntoView();
+                   anchor = document.getElementById(anchor_id);
+                   anchor.setAttribute("style", "color:red");
+                   anchor.innerHTML = "!";
+                   location.hash = '#' + anchor_id
                };
            });
      }); 

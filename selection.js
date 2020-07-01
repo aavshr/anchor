@@ -17,7 +17,7 @@ createAnchor = (id) => {
     return invisibleAnchor;
 }
 
-createLink = (sel, html) => {
+createLink = () => {
     var range, node;
     var anchor_id = uuid()
     var anchor = createAnchor(anchor_id);
@@ -35,8 +35,6 @@ createLink = (sel, html) => {
 };
 
 postHtml = (id, html) => {
-    console.log(html)
-
     var data = {
         anchor_id: id,
         html: html
@@ -52,4 +50,4 @@ postHtml = (id, html) => {
     })
 }
 
-createLink(sel)
+createLink()
