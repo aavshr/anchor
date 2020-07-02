@@ -28,7 +28,8 @@ createLink = () => {
 
     postHtml(anchor_id, document.all[0].outerHTML)
 
-    var url = location.href
+    // only get the url without a hash
+    var url = location.href.split("#")[0]
     // anchor deliberately misspelled here
     url = `${url}?anchorrrr_id=${anchor_id}`
     alert(url)
