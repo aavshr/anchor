@@ -1,4 +1,4 @@
-root = "https://kyofeo.deta.dev/v1"
+root = "https://anchor.deta.dev/v1"
 
 scrollToAnchor = () => {
     u = new URL(location.href)
@@ -11,7 +11,6 @@ scrollToAnchor = () => {
     let endpoint = `${root}/anchors/${anchor_id}` 
 
     fetch(endpoint).then((response) => {
-           console.log("response status:", response.status)
            if (response.status !==200){
                return;
            }
