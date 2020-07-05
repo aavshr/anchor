@@ -1,6 +1,6 @@
  {
     "name": "Anchor",
-    "version": "1.0",
+    "version": "0.0.1",
     "description": "Link to specific part of a web page",
     "background": {
         "scripts": ["background.js"],
