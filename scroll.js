@@ -1,15 +1,15 @@
 // github.com/aavshr/anchor-backend
-root = "https://anchor.deta.dev/v1"
+root = "https://anchor.deta.dev/v1";
 
 scrollToAnchor = () => {
-    u = new URL(location.href)
+    u = new URL(location.href);
     urlParams = new URLSearchParams(u.search); 
     anchor_id = urlParams.get('anchorrrr_id');
     if (!anchor_id){
         return; 
     }
 
-    let endpoint = `${root}/anchors/${anchor_id}` 
+    let endpoint = `${root}/anchors/${anchor_id}`; 
 
     fetch(endpoint).then((response) => {
            if (response.status !==200){
@@ -21,7 +21,7 @@ scrollToAnchor = () => {
                    anchor = document.getElementById(anchor_id);
                    anchor.setAttribute("style", "color:red");
                    anchor.innerHTML = "!";
-                   location.hash = '#' + anchor_id
+                   location.hash = '#' + anchor_id;
                };
            });
      }); 

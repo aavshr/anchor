@@ -1,7 +1,7 @@
 sel = window.getSelection();
 
 // github.com/aavshr/anchor-backend
-root = "https://kyofeo.deta.dev/v1"
+root = "https://kyofeo.deta.dev/v1";
 
 uuid = () => {
     var dt = new Date().getTime();
@@ -21,28 +21,28 @@ createAnchor = (id) => {
 
 createLink = () => {
     var range, node;
-    var anchor_id = uuid()
+    var anchor_id = uuid();
     var anchor = createAnchor(anchor_id);
 
     range = window.getSelection().getRangeAt(0);
     range.collapse(true);
     range.insertNode(anchor);
 
-    postHtml(anchor_id, document.all[0].outerHTML)
+    postHtml(anchor_id, document.all[0].outerHTML);
 
     // only get the url without a hash
-    var url = location.href.split("#")[0]
+    var url = location.href.split("#")[0];
     // anchor deliberately misspelled here
-    url = `${url}?anchorrrr_id=${anchor_id}`
-    alert(url)
+    url = `${url}?anchorrrr_id=${anchor_id}`;
+    alert(url);
 };
 
 postHtml = (id, html) => {
     var data = {
         anchor_id: id,
         html: html
-    } 
-    var endpoint = `${root}/anchors`
+    };
+    var endpoint = `${root}/anchors`;
 
     fetch(endpoint, {
         method: 'POST', 
@@ -50,7 +50,7 @@ postHtml = (id, html) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-    })
+    });
 }
 
-createLink()
+createLink();
