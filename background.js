@@ -1,18 +1,18 @@
 const contextMenuID ="acmid" // anchor context menu id 
 
-const createLink = (info, tab) => {
-    if (info.menuItemId !== contextMenuID){
-        return;
-    }
-    let selectionText = info.selectionText;
-    let pageUrl = info.pageUrl;
-    alert(`selected text: ${selectionText}, page url: ${pageUrl}`);
-};
-
 chrome.contextMenus.create({
     id: contextMenuID,
     title: "Create link",
     contexts: ["selection"],
 });
 
-chrome.contextMenus.onClicked.addListener(createLink)
+chrome.contextMenus.onClicked.addListener(function(info, tab){
+    chrome.tabs.executeScript(tab.id, {file: "selection.js"})
+});
+
+// TODO: have a content script not a function here
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+        if (changeInfo.status === "complete" && tab.active){
+            chrome.tabs.executeScript(tab.id, {file: "scroll.js"});
+        }
+});
