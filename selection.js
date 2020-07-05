@@ -1,4 +1,6 @@
 sel = window.getSelection();
+
+// github.com/aavshr/anchor-backend
 root = "https://kyofeo.deta.dev/v1"
 
 uuid = () => {
