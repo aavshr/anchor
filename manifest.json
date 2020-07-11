@@ -15,7 +15,8 @@
     ],
     "icons": {
         "16": "assets/icon-bitty.png",
-        "48": "assets/icon-small.png"
+        "48": "assets/icon-small.png",
+        "128": "assets/icon.png"
     },
     "manifest_version": 2
   }
